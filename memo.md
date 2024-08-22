@@ -1,0 +1,1 @@
+- [confirm waterfall](https://wk-partners.co.jp/homepage/blog/hpseisaku/htmlcss/preload/)

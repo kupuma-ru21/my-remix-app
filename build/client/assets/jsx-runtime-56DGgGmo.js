@@ -9,13 +9,13 @@ function N(e, t) {
             Object.defineProperty(
               e,
               o,
-              i.get ? i : { enumerable: !0, get: () => r[o] },
+              i.get ? i : { enumerable: !0, get: () => r[o] }
             );
         }
     }
   }
   return Object.freeze(
-    Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
+    Object.defineProperty(e, Symbol.toStringTag, { value: "Module" })
   );
 }
 function U(e) {
@@ -72,7 +72,7 @@ p.prototype.isReactComponent = {};
 p.prototype.setState = function (e, t) {
   if (typeof e != "object" && typeof e != "function" && e != null)
     throw Error(
-      "setState(...): takes an object of state variables to update or a function which returns an object of state variables.",
+      "setState(...): takes an object of state variables to update or a function which returns an object of state variables."
     );
   this.updater.enqueueSetState(this, e, t, "setState");
 };
@@ -180,7 +180,7 @@ function _(e, t, n, r, o) {
                 (!o.key || (c && c.key === o.key)
                   ? ""
                   : ("" + o.key).replace($, "$&/") + "/") +
-                e,
+                e
             )),
           t.push(o)),
       1
@@ -202,7 +202,7 @@ function _(e, t, n, r, o) {
           (t === "[object Object]"
             ? "object with keys {" + Object.keys(e).join(", ") + "}"
             : t) +
-          "). If you meant to render a collection of children, use an array instead.",
+          "). If you meant to render a collection of children, use an array instead."
       ))
     );
   return c;
@@ -230,7 +230,7 @@ function Z(e) {
         function (n) {
           (e._status === 0 || e._status === -1) &&
             ((e._status = 2), (e._result = n));
-        },
+        }
       ),
       e._status === -1 && ((e._status = 0), (e._result = t));
   }
@@ -255,7 +255,7 @@ u.Children = {
       function () {
         t.apply(this, arguments);
       },
-      n,
+      n
     );
   },
   count: function (e) {
@@ -277,7 +277,7 @@ u.Children = {
   only: function (e) {
     if (!b(e))
       throw Error(
-        "React.Children.only expected to receive a single React element child.",
+        "React.Children.only expected to receive a single React element child."
       );
     return e;
   },
@@ -295,7 +295,7 @@ u.cloneElement = function (e, t, n) {
     throw Error(
       "React.cloneElement(...): The argument must be a React element, but you passed " +
         e +
-        ".",
+        "."
     );
   var r = C({}, e.props),
     o = e.key,
