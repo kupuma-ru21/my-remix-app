@@ -12,6 +12,7 @@ import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import appStylesHref from "../../app.css?url";
 import { useEffect } from "react";
 import { createEmptyContact, getContacts } from "~/data";
+import Detail from "~/shared/Detail";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: appStylesHref },
@@ -102,14 +103,13 @@ export default function WithSidebar() {
           )}
         </nav>
       </div>
-      <div
-        id="detail"
+      <Detail
         className={
           navigation.state === "loading" && !searching ? "loading" : ""
         }
       >
         <Outlet />
-      </div>
+      </Detail>
     </>
   );
 }
