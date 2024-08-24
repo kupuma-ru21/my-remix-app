@@ -26,6 +26,8 @@ module.exports = {
       "error",
       { allowExportNames: ["meta", "links", "headers", "loader", "action"] },
     ],
+    // https://remix.run/docs/en/main/discussion/resubmissions#specific-scenarios-to-consider
+    "react/forbid-elements": ["error", { forbid: ["form"] }],
   },
   overrides: [
     // React
