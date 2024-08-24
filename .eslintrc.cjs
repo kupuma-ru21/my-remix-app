@@ -16,11 +16,22 @@ module.exports = {
   ignorePatterns: ["!**/.server", "!**/.client", "build"],
   // Base config
   extends: ["eslint:recommended"],
+  rules: {
+    /*
+      https://remix.run/docs/en/main/discussion/hot-module-replacement
+      https://github.com/ArnaudBarre/eslint-plugin-react-refresh
+      https://github.com/ArnaudBarre/eslint-plugin-react-refresh?tab=readme-ov-file#allowconstantexport-v040
+    */
+    "react-refresh/only-export-components": [
+      "error",
+      { allowExportNames: ["meta", "links", "headers", "loader", "action"] },
+    ],
+  },
   overrides: [
     // React
     {
       files: ["**/*.{js,jsx,ts,tsx}"],
-      plugins: ["react", "jsx-a11y"],
+      plugins: ["react", "jsx-a11y", "react-refresh"],
       extends: [
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
