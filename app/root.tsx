@@ -34,6 +34,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  // NOTE: Layout shouldn't include useLoaderData (https://remix.run/docs/en/main/file-conventions/root#layout-export)
   return (
     <html lang="en">
       <head>
