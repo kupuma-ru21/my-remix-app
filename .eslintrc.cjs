@@ -24,7 +24,16 @@ module.exports = {
     */
     "react-refresh/only-export-components": [
       "error",
-      { allowExportNames: ["meta", "links", "headers", "loader", "action"] },
+      {
+        allowExportNames: [
+          "meta",
+          "links",
+          "headers",
+          "loader",
+          "action",
+          "handle",
+        ],
+      },
     ],
     // https://remix.run/docs/en/main/discussion/resubmissions#specific-scenarios-to-consider
     "react/forbid-elements": ["error", { forbid: ["form"] }],
