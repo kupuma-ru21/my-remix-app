@@ -6,13 +6,16 @@ export default function Index() {
       This is a demo for Remix.
       <br />
       <ul>
-        <li>
-          <Link to="/memos">Memos</Link>
-        </li>
-        <li>
-          <Link to="/breadcrumbs">Breadcrumbs</Link>
-        </li>
+        {LINKS.map((link) => {
+          return (
+            <li key={link}>
+              <Link to={`/${link}`}>{link.toUpperCase()}</Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
 }
+
+const LINKS = ["memos", "breadcrumbs", "search-params"];
