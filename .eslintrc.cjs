@@ -10,25 +10,39 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
-    },
+    ecmaFeatures: { jsx: true },
   },
-  env: {
-    browser: true,
-    commonjs: true,
-    es6: true,
-  },
-  ignorePatterns: ["!**/.server", "!**/.client"],
-
+  env: { browser: true, commonjs: true, es6: true },
+  ignorePatterns: ["!**/.server", "!**/.client", "build"],
   // Base config
   extends: ["eslint:recommended"],
-
+  rules: {
+    /*
+      https://remix.run/docs/en/main/discussion/hot-module-replacement
+      https://github.com/ArnaudBarre/eslint-plugin-react-refresh
+      https://github.com/ArnaudBarre/eslint-plugin-react-refresh?tab=readme-ov-file#allowconstantexport-v040
+    */
+    "react-refresh/only-export-components": [
+      "error",
+      {
+        allowExportNames: [
+          "meta",
+          "links",
+          "headers",
+          "loader",
+          "action",
+          "handle",
+        ],
+      },
+    ],
+    // https://remix.run/docs/en/main/discussion/resubmissions#specific-scenarios-to-consider
+    "react/forbid-elements": ["error", { forbid: ["form"] }],
+  },
   overrides: [
     // React
     {
       files: ["**/*.{js,jsx,ts,tsx}"],
-      plugins: ["react", "jsx-a11y"],
+      plugins: ["react", "jsx-a11y", "react-refresh"],
       extends: [
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
@@ -36,20 +50,15 @@ module.exports = {
         "plugin:jsx-a11y/recommended",
       ],
       settings: {
-        react: {
-          version: "detect",
-        },
+        react: { version: "detect" },
         formComponents: ["Form"],
         linkComponents: [
           { name: "Link", linkAttribute: "to" },
           { name: "NavLink", linkAttribute: "to" },
         ],
-        "import/resolver": {
-          typescript: {},
-        },
+        "import/resolver": { typescript: {} },
       },
     },
-
     // Typescript
     {
       files: ["**/*.{ts,tsx}"],
@@ -58,12 +67,8 @@ module.exports = {
       settings: {
         "import/internal-regex": "^~/",
         "import/resolver": {
-          node: {
-            extensions: [".ts", ".tsx"],
-          },
-          typescript: {
-            alwaysTryTypes: true,
-          },
+          node: { extensions: [".ts", ".tsx"] },
+          typescript: { alwaysTryTypes: true },
         },
       },
       extends: [
@@ -72,13 +77,7 @@ module.exports = {
         "plugin:import/typescript",
       ],
     },
-
     // Node
-    {
-      files: [".eslintrc.js"],
-      env: {
-        node: true,
-      },
-    },
+    { files: [".eslintrc.js"], env: { node: true } },
   ],
 };

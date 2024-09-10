@@ -4,7 +4,8 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "remix vite:build",
+    "prettier": "pnpm exec prettier \"./**/*.{ts,js,tsx}\" --write",
+    "build": "remix vite:build && pnpm prettier",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve build/server/index.js",
@@ -33,6 +34,8 @@
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.11",
+    "prettier": "3.3.3",
     "typescript": "^5.1.6",
     "vite": "^5.1.4",
     "vite-tsconfig-paths": "^4.3.1"
