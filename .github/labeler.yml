@@ -1,5 +1,24 @@
-# Add 'root' label to any root file changes
-# Quotation marks are required for the leading asterisk
-root:
+# https://github.com/actions/labeler?tab=readme-ov-file#basic-examples
+web:
   - changed-files:
-      - any-glob-to-any-file: "*"
+      - any-glob-to-any-file: web/**
+
+admin:
+  - changed-files:
+      - any-glob-to-any-file: admin/**
+
+api:
+  - changed-files:
+      - any-glob-to-any-file: api/**
+
+ci/cd:
+  - changed-files:
+      - any-glob-to-any-file: .github/**
+
+migration:
+  - changed-files:
+      - any-glob-to-any-file: migration/**
+
+app:
+  - changed-files:
+      - any-glob-to-any-file: mobile_app/**
