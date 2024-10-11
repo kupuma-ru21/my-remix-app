@@ -22,6 +22,7 @@ export const links: LinksFunction = () => [
 ];
 
 export const action = async () => {
+  console.log("test");
   const contact = await createEmptyContact();
   return redirect(`/contacts/${contact.id}/edit`);
 };
